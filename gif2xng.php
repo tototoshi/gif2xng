@@ -10,8 +10,6 @@ $image->setFirstIterator();
 
 $frames = [];
 
-$tmpfile = tempnam('/tmp', 'xngtest.');
-
 $image = $image->coalesceImages();
 do {
     $delay = $image->getImageDelay();
@@ -21,8 +19,6 @@ do {
         'delay' => $delay
     ];
 } while ($image->nextImage());
-
-unlink($tmpfile);
 
 echo sprintf('<svg xmlns="http://www.w3.org/2000/svg" xmlns:A="http://www.w3.org/1999/xlink" width="%d" height="%d">', $width, $height) . PHP_EOL;
 
